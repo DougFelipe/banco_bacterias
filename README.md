@@ -1,11 +1,19 @@
 # Relatório do Projeto de Sistemas de Banco de Dados
 
-## Universidade [Nome da Universidade]  
-**Curso:** [Nome do Curso]  
+**Curso:** [Banco de Dados - DIM0125]  
+**Professor:** [MARCEL VINICIUS MEDEIROS OLIVEIRA]  
+
+
+**Aluno:** [Douglas Felipe de Lima Silva]  
+**Matrícula:** 20220054131  
+
 **Aluno:** [Nome do Aluno]  
 **Matrícula:** XXXXXXXX  
-**Professor:** [Nome do Professor]  
-**Data:** [Data]
+
+**Aluno:** [Nome do Aluno]  
+**Matrícula:** XXXXXXXX  
+
+
 
 ---
 
@@ -28,13 +36,26 @@
 
 ## 1. Concepção e Definição dos Projetos
 
-A proposta deste projeto é direcionar o aprendizado dos participantes na concepção e implementação de projetos de sistemas de bancos de dados. Idealmente, estes projetos devem ser inovadores, sem esquecer a necessidade de conter requisitos de dados relativamente complexos.
+Este projeto tem como principal objetivo promover a aplicação prática dos conhecimentos adquiridos em modelagem e desenvolvimento de sistemas de banco de dados, a partir de um conjunto de dados reais provenientes de um experimento microbiológico. A base de dados utilizada contempla diferentes amostras isoladas, seus atributos morfológicos, genéticos e funcionais, bem como o registro de ensaios bioquímicos e ambientais. O cenário proposto oferece uma oportunidade concreta de lidar com dados complexos e heterogêneos, que demandam organização estruturada, normalização e tratamento semântico para garantir a integridade, escalabilidade e facilidade de consulta posterior.
 
-> Inovação é definida na Lei brasileira como introdução de novidade ou aperfeiçoamento no ambiente produtivo e social que resulte em novos produtos, serviços ou processos ou que compreenda a agregação de novas funcionalidades ou características a produto, serviço ou processo já existente que possa resultar em melhorias e em efetivo ganho de qualidade ou desempenho. (Lei nº 13.243, de 2016)
 
-Os alunos devem:
-- Identificar os problemas da situação atual (as-is)
-- Propor soluções inovadoras para a situação futura (to-be)
+### Diagnóstico da Situação Atual (as-is)
+
+Atualmente, os dados estão armazenados em planilhas independentes, com estruturas não normalizadas, campos sobrepostos, nomenclaturas variadas e ausência de chaves relacionais. Essa abordagem manual, apesar de funcional em pequena escala, dificulta:
+
+- A manutenção e atualização consistente das informações;
+- A realização de análises comparativas e agregadas;
+- O versionamento e o controle histórico dos dados;
+- A integração com ferramentas de análise estatística ou plataformas web.
+
+### Proposta de Situação Futura (to-be)
+
+O projeto propõe a modelagem e implementação de um sistema de banco de dados relacional, centrado em entidades como: `Amostra`, `Isolado`, `Consórcio`, `TesteFuncional`, `Sequenciamento`, `Morfologia`, `EnsaioGenômico`, entre outras. A nova estrutura:
+
+- Assegura integridade referencial entre os dados;
+- Facilita consultas específicas e cruzamentos complexos;
+- Permite o crescimento futuro da base com dados adicionais;
+- Suporta análises automatizadas e construção de dashboards.
 
 ---
 
