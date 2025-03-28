@@ -310,7 +310,7 @@ Durante a análise inicial do projeto, foram consideradas diferentes alternativa
 
 ---
 
-#### 🧪 Opção 3: Uso de Softwares de LIMS (Laboratory Information Management Systems)
+####  Opção 3: Uso de Softwares de LIMS (Laboratory Information Management Systems)
 
 **Descrição:** Adotar uma plataforma pronta para gestão de laboratórios, como Benchling, LabWare ou openLIMS.
 
@@ -340,13 +340,71 @@ Após análise das alternativas, optou-se pelo **desenvolvimento de um sistema l
 
 ### 2.6 Visão Geral do Produto
 
-**Perspectiva do Produto:**
-- Independência ou integração com outros sistemas
-- Diagrama de blocos (se aplicável)
+####  Perspectiva do Produto
 
-**Suposições e Dependências:**
-- Fatores que podem alterar os requisitos
-- Exemplo: disponibilidade de sistema operacional ou infraestrutura
+O sistema a ser desenvolvido será **independente**, com uso exclusivo interno pelo laboratório de microbiologia. Seu propósito é substituir o atual modelo baseado em planilhas dispersas, oferecendo uma solução centralizada, organizada e confiável para o controle de amostras e resultados experimentais.
+
+A interação com o sistema se dará por meio de uma **interface web**, desenvolvida em **Python**, com funcionalidades acessíveis via navegador por diferentes perfis de usuários. O sistema incluirá módulos para cadastro, atualização, consulta e geração de relatórios científicos, além de funcionalidades para análise e rastreamento de dados ao longo do tempo.
+
+##### Componentes principais do sistema:
+
+- **Módulo de Cadastro de Amostras**: registro de novas bactérias, consórcios e isolados;
+- **Módulo de Testes e Ensaios**: inserção dos resultados funcionais, morfológicos e bioquímicos;
+- **Módulo de Análise Genômica**: organização das informações de sequenciamento e dados de bioinformática;
+- **Módulo de Relatórios**: geração de relatórios por filtros e exportações;
+- **Controle de Usuários**: autenticação, permissões e rastreamento de modificações;
+- **Banco de Dados**: armazenamento relacional estruturado e normalizado.
+
+##### Premissas de infraestrutura:
+
+- O sistema será hospedado nos **servidores da faculdade**, exigindo suporte a:
+  - Banco de dados relacional;
+  - Servidor web com suporte a Python;
+  - Armazenamento seguro para os dados e backups periódicos;
+  - Acesso em rede local (inicialmente), podendo ser expandido para acesso remoto.
+
+##### Suposições:
+
+- Os dados laboratoriais seguirão o padrão atual de estrutura, como refletido nas planilhas fornecidas;
+- Novos experimentos poderão ser integrados futuramente com a adição de novas tabelas e funcionalidades;
+- O sistema será utilizado além da disciplina, exigindo **documentação completa**, **interface amigável** e possibilidade de **manutenção evolutiva**.
+
+
+
+---
+
+####  Diagrama de Blocos do Sistema
+
+
+### 📌 Diagrama de Blocos do Sistema
+
+```
+           +-----------------------+
+           |    Usuários Finais    |
+           | (IC, Mestrado, PhD)   |
+           +----------+------------+
+                      |
+                      v
+           +------------------------+
+           |     Interface Web      |
+           +----------+-------------+
+                      |
+    +-----------------+------------------+
+    |                 |                  |
+    v                 v                  v
++-----------+   +-------------+   +----------------+
+| Cadastro  |   |   Testes    |   |    Genômica &  |
+| de Amostras|  |   & Ensaios |   | Bioinformática |
++-----------+   +-------------+   +----------------+
+     \              |                   /
+      \             |                  /
+       \            v                 /
+        +-----------------------------+
+        |     Banco de Dados          |
+        +-----------------------------+
+
+
+```
 
 ### 2.7 Recursos do Produto
 
