@@ -63,11 +63,45 @@ O projeto propõe a modelagem e implementação de um sistema de banco de dados 
 
 ### 2.1 Descrição da Visão do Produto
 
-Descrever os objetivos do projeto, indicando o propósito, principais benefícios e a motivação para sua realização. Detalhar:
-- Necessidades
-- Estado atual
-- Melhorias esperadas
-- Modelagem de Processo de Negócio (usando notação BPM)
+O objetivo deste projeto é desenvolver um sistema de banco de dados relacional voltado para a organização e gerenciamento de dados microbiológicos experimentais, com foco em amostras isoladas, consórcios microbianos, características genômicas e resultados de ensaios laboratoriais.
+
+O sistema proposto busca atender às necessidades específicas de pesquisadores e profissionais da área de biotecnologia e microbiologia ambiental, fornecendo uma plataforma confiável para armazenar, consultar e interpretar grandes volumes de dados complexos.
+
+#### 🔍 Necessidades
+
+Atualmente, os dados são mantidos em múltiplas planilhas Excel, muitas vezes com informações duplicadas, inconsistências de nomenclatura, falta de integridade entre registros e ausência de estrutura relacional. Isso gera dificuldades como:
+
+- Baixa rastreabilidade dos resultados experimentais;
+- Dificuldade de cruzamento entre diferentes dimensões de dados (ex: morfologia × desempenho funcional);
+- Risco elevado de perda ou corrupção dos dados;
+- Baixa escalabilidade para inserção de novas amostras e testes.
+
+#### 📉 Estado Atual
+
+- Os dados estão dispersos em **9 planilhas distintas**, sem integração lógica;
+- Muitas planilhas possuem colunas genéricas ou mal nomeadas;
+- A ausência de chaves primárias e estrangeiras impossibilita validação automática;
+- Não há versionamento, controle de histórico ou padronização dos formatos.
+
+#### 🚀 Melhorias Esperadas
+
+- Implementação de um **modelo relacional estruturado**, com entidades bem definidas (ex: `Amostra`, `Isolado`, `TesteFuncional`);
+- Garantia de **integridade referencial** entre dados experimentais, genômicos e descritivos;
+- Facilidade de manutenção, busca e análise dos dados;
+- Redução de erros humanos por meio de validações e padronizações no sistema.
+
+#### 🧭 Modelagem de Processo de Negócio (BPM)
+
+Para estruturar o fluxo do sistema e entender melhor as interações com os dados, será elaborada uma **Modelagem de Processo de Negócio (BPM)** representando:
+
+- O processo de cadastro e curadoria de novas amostras;
+- A associação de dados experimentais aos isolados;
+- A submissão de dados genômicos e metadados;
+- A emissão de relatórios e visualizações analíticas para o time de pesquisa.
+
+A notação BPMN será utilizada para representar visualmente os processos, com o auxílio da ferramenta **PlantUML**, a fim de facilitar a comunicação entre os envolvidos e garantir um entendimento compartilhado dos fluxos de trabalho.
+
+
 
 ### 2.2 Descrição dos Atores Envolvidos e dos Usuários Finais
 
