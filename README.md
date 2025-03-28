@@ -105,16 +105,32 @@ A notação BPMN será utilizada para representar visualmente os processos, com 
 
 ### 2.2 Descrição dos Atores Envolvidos e dos Usuários Finais
 
-**Envolvidos (não usuários finais):**
-- Nome:
-- Descrição:
-- Responsabilidade:
+Nesta seção são apresentados os principais envolvidos no projeto, incluindo tanto os **usuários finais** que utilizarão o sistema diretamente, quanto os **envolvidos** que influenciam nos requisitos, mas não necessariamente interagem com o sistema. Essa identificação é essencial para garantir que todas as necessidades sejam compreendidas e contempladas na modelagem do banco de dados.
 
-**Usuários Finais:**
-- Nome:
-- Descrição:
-- Responsabilidade:
-- Envolvido representante:
+---
+
+#### 👥 Envolvidos (não usuários finais)
+
+| Nome            | Descrição                                                                 | Responsabilidade                                                              |
+|-----------------|---------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Coordenador de Pesquisa | Responsável pela supervisão geral das atividades do laboratório.           | Aprovar diretrizes para padronização dos dados e garantir integridade científica. |
+| Professores Orientadores | Docentes que orientam os projetos de pesquisa.                        | Validar a modelagem dos dados e propor melhorias com base em objetivos didáticos. |
+| Equipe de TI Acadêmica | Suporte técnico da instituição.                                       | Apoiar a infraestrutura de hospedagem e manutenção do sistema de banco de dados. |
+
+---
+
+#### 👤 Usuários Finais
+
+| Nome             | Descrição                                                              | Responsabilidade                                                      | Envolvido Representante          |
+|------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------|
+| Pesquisadores    | Mestres/doutorandos que coletam e analisam dados microbiológicos.      | Inserir novos registros de amostras, consultar resultados e exportar dados. | Coordenador de Pesquisa         |
+| Estudantes de Iniciação Científica | Alunos de graduação envolvidos nos projetos de pesquisa.               | Auxiliar no preenchimento dos dados e revisão de informações históricas. | Professores Orientadores        |
+
+---
+
+Essa estrutura colaborativa reforça a necessidade de um sistema intuitivo, validado por diferentes perfis de usuário, e com controle de acesso adequado às funções de cada papel no processo.
+
+
 
 ### 2.3 Descrição do Ambiente do Usuário
 
