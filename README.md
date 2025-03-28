@@ -178,8 +178,6 @@ Essas restrições reforçam a importância da implementação de um sistema que
 
 - Microsoft Excel (armazenamento dos dados);
 - Google Drive (compartilhamento de arquivos);
-- Bizagi Modeler (para BPMN);
-- Ferramentas de bioinformática localmente instaladas.
 
 **Plataformas Futuras:**
 
@@ -195,16 +193,82 @@ Essas restrições reforçam a importância da implementação de um sistema que
 
 ### 2.4 Principais Necessidades dos Usuários e Envolvidos
 
-Para cada problema identificado:
-- Quais são as causas?
-- Como está sendo resolvido agora?
-- Qual a solução desejada?
+A partir da análise do ambiente atual do laboratório e das interações dos usuários com os dados experimentais, foi possível identificar um conjunto de problemas centrais, suas causas e as soluções desejadas pelos envolvidos.
 
-E para cada necessidade:
-- Prioridade
-- Preocupações
-- Solução Atual
-- Solução Proposta
+---
+
+#### 🧩 Problema 1: Fragmentação e Duplicidade de Dados
+
+- **Causa:** Utilização de múltiplas planilhas e arquivos soltos, sem controle de versões nem integração entre as fontes.
+- **Solução Atual:** Compartilhamento manual de arquivos via Google Drive e comunicação informal entre os membros do laboratório.
+- **Solução Desejada:** Centralização dos dados em um banco relacional único, com interface de acesso controlada e registros consolidados.
+
+**Resumo da Necessidade:**
+
+| Prioridade | Preocupações                    | Solução Atual             | Solução Proposta                          |
+|------------|----------------------------------|---------------------------|-------------------------------------------|
+| Alta       | Perda de dados, inconsistência  | Planilhas desconectadas   | Banco relacional com acesso centralizado |
+
+---
+
+#### 🧩 Problema 2: Falta de Padronização no Registro de Informações
+
+- **Causa:** Ausência de campos obrigatórios e padronizações nas planilhas utilizadas.
+- **Solução Atual:** Criação de modelos manuais (templates) com instruções informais.
+- **Solução Desejada:** Implementação de um sistema com campos validados, formatos consistentes e menus controlados (ex: seleção por listas).
+
+**Resumo da Necessidade:**
+
+| Prioridade | Preocupações                          | Solução Atual       | Solução Proposta                                 |
+|------------|----------------------------------------|---------------------|--------------------------------------------------|
+| Alta       | Dados inválidos, retrabalho, ambiguidade | Templates soltos   | Validações automáticas e estrutura padronizada  |
+
+---
+
+#### 🧩 Problema 3: Dificuldade na Rastreabilidade de Resultados
+
+- **Causa:** Modificações nos dados não são registradas ou associadas a um responsável.
+- **Solução Atual:** Depende da memória dos usuários ou da criação de anotações paralelas.
+- **Solução Desejada:** Sistema com controle de usuários, histórico de alterações e identificação de autoria nos cadastros.
+
+**Resumo da Necessidade:**
+
+| Prioridade | Preocupações                  | Solução Atual       | Solução Proposta                            |
+|------------|-------------------------------|---------------------|---------------------------------------------|
+| Média      | Falta de auditoria e rastreamento | Anotações manuais  | Sistema com login e controle de versões     |
+
+---
+
+#### 🧩 Problema 4: Baixa Eficiência na Recuperação de Dados
+
+- **Causa:** Falta de mecanismos de busca estruturada e filtros para cruzar informações.
+- **Solução Atual:** Busca visual e filtros manuais nas planilhas.
+- **Solução Desejada:** Consultas flexíveis com critérios por atributos (ex: por bactéria, tipo de teste, resultado funcional).
+
+**Resumo da Necessidade:**
+
+| Prioridade | Preocupações                   | Solução Atual         | Solução Proposta                                  |
+|------------|---------------------------------|------------------------|---------------------------------------------------|
+| Alta       | Demora na análise e risco de erro | Filtros no Excel       | Sistema com formulários e consultas parametrizadas |
+
+---
+
+#### 🧩 Problema 5: Escalabilidade limitada para novos dados e análises
+
+- **Causa:** Estrutura atual não comporta grandes volumes ou novos tipos de dados sem reestruturações manuais.
+- **Solução Atual:** Criação de novas abas ou planilhas quando necessário.
+- **Solução Desejada:** Modelo de dados relacional, escalável e extensível, com suporte a novos tipos de análises e integração futura com ferramentas analíticas.
+
+**Resumo da Necessidade:**
+
+| Prioridade | Preocupações                       | Solução Atual     | Solução Proposta                                       |
+|------------|-------------------------------------|-------------------|--------------------------------------------------------|
+| Alta       | Reestruturação constante, risco de erros | Expansão manual  | Banco relacional escalável com suporte a extensões    |
+
+---
+
+Essas necessidades foram levantadas em diálogo com os usuários reais do sistema e orientam a priorização das funcionalidades a serem implementadas.
+
 
 ### 2.5 Alternativas e Concorrência
 
