@@ -76,21 +76,21 @@ Atualmente, os dados são mantidos em múltiplas planilhas Excel, muitas vezes c
 - Risco elevado de perda ou corrupção dos dados;
 - Baixa escalabilidade para inserção de novas amostras e testes.
 
-#### 📉 Estado Atual
+####  Estado Atual
 
 - Os dados estão dispersos em **9 planilhas distintas**, sem integração lógica;
 - Muitas planilhas possuem colunas genéricas ou mal nomeadas;
 - A ausência de chaves primárias e estrangeiras impossibilita validação automática;
 - Não há versionamento, controle de histórico ou padronização dos formatos.
 
-#### 🚀 Melhorias Esperadas
+####  Melhorias Esperadas
 
 - Implementação de um **modelo relacional estruturado**, com entidades bem definidas (ex: `Amostra`, `Isolado`, `TesteFuncional`);
 - Garantia de **integridade referencial** entre dados experimentais, genômicos e descritivos;
 - Facilidade de manutenção, busca e análise dos dados;
 - Redução de erros humanos por meio de validações e padronizações no sistema.
 
-#### 🧭 Modelagem de Processo de Negócio (BPM)
+####  Modelagem de Processo de Negócio (BPM)
 
 Para estruturar o fluxo do sistema e entender melhor as interações com os dados, será elaborada uma **Modelagem de Processo de Negócio (BPM)** representando:
 
@@ -134,11 +134,64 @@ Essa estrutura colaborativa reforça a necessidade de um sistema intuitivo, vali
 
 ### 2.3 Descrição do Ambiente do Usuário
 
-- Número de pessoas envolvidas nas tarefas
-- Duração do ciclo de tarefas
-- Restrições existentes
-- Plataformas utilizadas atualmente e futuras
-- Integração com outros aplicativos existentes
+O sistema será utilizado em um ambiente acadêmico de pesquisa aplicada, especificamente em um laboratório de microbiologia que conduz estudos com bactérias isoladas de ambientes contaminados, visando aplicações biotecnológicas e ambientais.
+
+####  Número de Pessoas Envolvidas nas Tarefas
+
+Atualmente, participam ativamente das atividades envolvidas nesse projeto:
+
+- 1 professora coordenadora do laboratório;
+- Alunos de Iniciação Científica (IC);
+- Mestrandos e doutorandos vinculados ao programa de pós-graduação.
+
+No total, estima-se que entre **6 a 10 pessoas** estejam envolvidas diretamente nas atividades que envolvem coleta, experimentação, análise e cadastro de dados no sistema.
+
+####  Duração do Ciclo de Tarefas
+
+As tarefas relacionadas à geração de dados seguem um fluxo recorrente:
+
+- **Coleta e isolamento das amostras:** pode levar de **4 a 5 semanas** por ciclo;
+- **Realização dos testes laboratoriais:** entre **1 a 4 semanas**, dependendo do experimento;
+- **Análise de dados e inserção no sistema:** geralmente feita semanalmente ou ao fim de cada ensaio.
+
+O ciclo completo, da coleta até o registro final no sistema, pode durar entre **3 a 6 semanas**, com sobreposição entre atividades de diferentes amostras.
+
+####  Restrições Existentes
+
+O ambiente de pesquisa do laboratório apresenta desafios típicos de centros acadêmicos que lidam com grandes volumes de dados experimentais de forma descentralizada. A ausência de um sistema centralizado tem gerado limitações significativas para a gestão e evolução dos dados microbiológicos.
+
+Entre as principais restrições observadas, destacam-se:
+
+- **Fragmentação da informação:** Os dados estão distribuídos entre diferentes arquivos, versões e dispositivos, dificultando o acesso e a consistência das informações;
+- **Baixa rastreabilidade científica:** Não há mecanismos eficientes para acompanhar o histórico de modificações ou identificar a autoria das edições nos registros experimentais;
+- **Dependência de conhecimento informal:** A estrutura e os critérios de preenchimento das planilhas são, muitas vezes, compreendidos apenas por quem criou ou manuseia os arquivos, o que compromete a continuidade em caso de troca de bolsistas ou pesquisadores;
+- **Limitações operacionais:** A inserção, recuperação e cruzamento de dados exigem esforço manual elevado, o que consome tempo dos pesquisadores e aumenta a probabilidade de erros;
+- **Ausência de mecanismos de validação:** Os dados não passam por nenhum tipo de verificação automatizada, o que permite inconsistências sem alerta ou correção.
+
+Essas restrições reforçam a importância da implementação de um sistema que não apenas organize os dados de forma relacional, mas também ofereça suporte à colaboração segura e à preservação do conhecimento gerado no laboratório ao longo do tempo.
+
+
+
+####  Plataformas Utilizadas Atualmente e Futuras
+
+**Atualmente:**
+
+- Microsoft Excel (armazenamento dos dados);
+- Google Drive (compartilhamento de arquivos);
+- Bizagi Modeler (para BPMN);
+- Ferramentas de bioinformática localmente instaladas.
+
+**Plataformas Futuras:**
+
+- Sistema de banco de dados relacional;
+- Interface web para cadastro e consulta dos dados;
+
+####  Integração com Outros Aplicativos Existentes
+
+- A plataforma deverá ser compatível com ferramentas como **Excel** e **Google Sheets**, permitindo importação/exportação de dados.
+- Possibilidade de exportar dados em formatos padronizados (CSV, JSON) para submissão em bases externas.
+
+
 
 ### 2.4 Principais Necessidades dos Usuários e Envolvidos
 
