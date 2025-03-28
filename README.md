@@ -197,7 +197,7 @@ A partir da análise do ambiente atual do laboratório e das interações dos us
 
 ---
 
-#### 🧩 Problema 1: Fragmentação e Duplicidade de Dados
+####  Problema 1: Fragmentação e Duplicidade de Dados
 
 - **Causa:** Utilização de múltiplas planilhas e arquivos soltos, sem controle de versões nem integração entre as fontes.
 - **Solução Atual:** Compartilhamento manual de arquivos via Google Drive e comunicação informal entre os membros do laboratório.
@@ -211,7 +211,7 @@ A partir da análise do ambiente atual do laboratório e das interações dos us
 
 ---
 
-#### 🧩 Problema 2: Falta de Padronização no Registro de Informações
+####  Problema 2: Falta de Padronização no Registro de Informações
 
 - **Causa:** Ausência de campos obrigatórios e padronizações nas planilhas utilizadas.
 - **Solução Atual:** Criação de modelos manuais (templates) com instruções informais.
@@ -225,7 +225,7 @@ A partir da análise do ambiente atual do laboratório e das interações dos us
 
 ---
 
-#### 🧩 Problema 3: Dificuldade na Rastreabilidade de Resultados
+####  Problema 3: Dificuldade na Rastreabilidade de Resultados
 
 - **Causa:** Modificações nos dados não são registradas ou associadas a um responsável.
 - **Solução Atual:** Depende da memória dos usuários ou da criação de anotações paralelas.
@@ -239,7 +239,7 @@ A partir da análise do ambiente atual do laboratório e das interações dos us
 
 ---
 
-#### 🧩 Problema 4: Baixa Eficiência na Recuperação de Dados
+####  Problema 4: Baixa Eficiência na Recuperação de Dados
 
 - **Causa:** Falta de mecanismos de busca estruturada e filtros para cruzar informações.
 - **Solução Atual:** Busca visual e filtros manuais nas planilhas.
@@ -253,7 +253,7 @@ A partir da análise do ambiente atual do laboratório e das interações dos us
 
 ---
 
-#### 🧩 Problema 5: Escalabilidade limitada para novos dados e análises
+####  Problema 5: Escalabilidade limitada para novos dados e análises
 
 - **Causa:** Estrutura atual não comporta grandes volumes ou novos tipos de dados sem reestruturações manuais.
 - **Solução Atual:** Criação de novas abas ou planilhas quando necessário.
@@ -272,12 +272,71 @@ Essas necessidades foram levantadas em diálogo com os usuários reais do sistem
 
 ### 2.5 Alternativas e Concorrência
 
-Listar as opções disponíveis:
-- Produtos concorrentes
-- Soluções locais
-- Manutenção do status quo
+Durante a análise inicial do projeto, foram consideradas diferentes alternativas para solucionar os problemas enfrentados atualmente no gerenciamento de dados do laboratório. Abaixo, estão listadas as principais opções identificadas, incluindo soluções concorrentes, abordagens locais e a manutenção do cenário atual.
 
-Analisar pontos fortes e fracos de cada alternativa conforme a visão dos envolvidos.
+---
+
+####  Opção 1: Manutenção do Status Quo
+
+**Descrição:** Continuar utilizando planilhas do Excel/Google Sheets para organizar os dados de forma manual e descentralizada.
+
+**Pontos Fortes:**
+- Ferramentas conhecidas por todos os usuários;
+- Sem necessidade de instalação ou desenvolvimento adicional;
+- Fácil compartilhamento via Google Drive.
+
+**Pontos Fracos:**
+- Alta propensão a erros e inconsistências;
+- Nenhum controle de versões ou histórico de alterações;
+- Dificuldade de escalar para novos dados e análises;
+- Trabalho repetitivo e baixa rastreabilidade.
+
+---
+
+####  Opção 2: Desenvolvimento de um Sistema Local com Interface Web e Banco de Dados
+
+**Descrição:** Implementar um sistema customizado com banco de dados relacional, interface web para cadastro e consulta, e estrutura normalizada de dados.
+
+**Pontos Fortes:**
+- Atende exatamente às necessidades do laboratório;
+- Permite controle de usuários, histórico e validação dos dados;
+- Estrutura escalável e de longo prazo;
+- Facilita análises estatísticas e exportações.
+
+**Pontos Fracos:**
+- Requer tempo e conhecimento técnico para o desenvolvimento;
+- Necessita de manutenção contínua e apoio institucional;
+- Depende da familiaridade dos usuários com a nova interface.
+
+---
+
+#### 🧪 Opção 3: Uso de Softwares de LIMS (Laboratory Information Management Systems)
+
+**Descrição:** Adotar uma plataforma pronta para gestão de laboratórios, como Benchling, LabWare ou openLIMS.
+
+**Pontos Fortes:**
+- Soluções profissionais, prontas para uso;
+- Recursos robustos de rastreabilidade e integração com workflows;
+- Suporte a anexos, resultados e documentos experimentais.
+
+**Pontos Fracos:**
+- Custo elevado (a maioria das versões completas é paga);
+- Pouca flexibilidade para adaptar à estrutura de dados do laboratório;
+- Necessidade de treinamento e possível resistência dos usuários;
+- Alguns dados podem precisar ser convertidos ou retrabalhados.
+
+---
+
+###  Escolha Estratégica
+
+Após análise das alternativas, optou-se pelo **desenvolvimento de um sistema local customizado**, pois essa abordagem:
+
+- Equilibra custo, flexibilidade e controle;
+- É compatível com a realidade do laboratório e com os objetivos da disciplina;
+- Proporciona aprendizado prático aos alunos na concepção de um sistema real;
+- Garante aderência ao domínio dos dados e às necessidades específicas da pesquisa.
+
+
 
 ### 2.6 Visão Geral do Produto
 
