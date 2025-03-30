@@ -3,16 +3,14 @@
 **Curso:** [Banco de Dados - DIM0125]  
 **Professor:** [MARCEL VINICIUS MEDEIROS OLIVEIRA]  
 
-
 **Aluno:** [Douglas Felipe de Lima Silva]  
 **Matrícula:** 20220054131  
 
-**Aluno:** [Nome do Aluno]  
-**Matrícula:** XXXXXXXX  
+**Aluno:** [ELILDES FORTALEZA SANTOS]    
+**Matrícula:** 20240078023  
 
-**Aluno:** [Nome do Aluno]  
-**Matrícula:** XXXXXXXX  
-
+**Aluno:** [FELIPE MARLEY DE OLIVEIRA GOMES]    
+**Matrícula:** 20210053408  
 
 
 ---
