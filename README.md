@@ -589,15 +589,75 @@ Esses requisitos não funcionais são essenciais para garantir que o sistema nã
 
 ### 2.9 Cronograma do Projeto
 
-- Estrutura Analítica do Projeto (EAP)
-- Entregáveis intermediários
-- Previsão de conclusão
+O cronograma a seguir foi estruturado com base nas etapas naturais de desenvolvimento de um sistema de banco de dados, considerando também os prazos da disciplina e os marcos esperados no contexto do laboratório. Ele está dividido em quatro partes: Estrutura Analítica do Projeto (EAP), entregáveis intermediários, previsão de conclusão e a lista de documentos a serem gerados.
 
-Incluir lista de documentos mencionados com:
-- Título
-- Número (se houver)
-- Data
-- Organização
+---
+
+####  Estrutura Analítica do Projeto (EAP)
+
+1. **Planejamento Inicial**
+   - Levantamento dos requisitos e entendimento do problema
+   - Análise exploratória das planilhas de dados
+   - Escolha de tecnologias (Python, Flask/Django, banco relacional)
+
+2. **Modelagem**
+   - Criação do Modelo Entidade-Relacionamento (MER)
+   - Normalização e estruturação lógica
+   - Definição de tabelas e relacionamentos
+
+3. **Desenvolvimento**
+   - Implementação do banco de dados relacional
+   - Construção da interface web
+   - Integração com os módulos de cadastro, testes e genômica
+
+4. **Validação e Testes**
+   - Testes funcionais com usuários internos
+   - Validação de consistência dos dados
+   - Ajustes com base em feedback dos pesquisadores
+
+5. **Documentação e Entrega Final**
+   - Finalização do relatório técnico e manual do sistema
+   - Preparação de apresentação final
+   - Publicação do repositório e entrega oficial
+
+---
+
+####  Entregáveis Intermediários
+
+- Documento de Visão do Produto
+- Modelo Entidade-Relacionamento (MER)
+- Modelo Relacional com tabelas normalizadas
+- Scripts SQL de criação do banco
+- Protótipo da Interface Web
+- Código-fonte no GitHub
+- Relatórios de testes e validações
+- Manual do usuário e instruções de uso
+
+---
+
+####  Previsão de Conclusão
+
+| Etapa                          | Período Estimado     |
+|-------------------------------|-----------------------|
+| Planejamento Inicial           | Semanas 1 a 2         |
+| Modelagem                     | Semanas 3 a 4         |
+| Desenvolvimento               | Semanas 5 a 8         |
+| Validação e Testes            | Semanas 9 a 10        |
+| Documentação e Entrega Final  | Semanas 11 a 12       |
+
+*Obs.: O cronograma poderá ser ajustado conforme o andamento do semestre e a disponibilidade da equipe.*
+
+---
+
+####  Lista de Documentos Mencionados
+
+| Título                                 | Nº Documento | Data Estimada | Organização                    |
+|----------------------------------------|--------------|----------------|---------------------------------|
+| Documento de Visão do Produto          | —            | 2025-04-10     | Laboratório de Microbiologia/Professor   |
+| Modelo Entidade-Relacionamento (MER)   | —            | 2025-04-15     | Projeto de Banco de Dados      |
+| Relatório Final do Projeto             | —            | 2025-06-20     | Professor               |
+| Scripts de Criação do Banco (SQL)      | —            | 2025-05-01     | Equipe de Desenvolvimento      |
+| Manual do Sistema                      | —            | 2025-06-15     | Disciplina de Projeto de BD    |
 
 ---
 
