@@ -404,23 +404,188 @@ A interação com o sistema se dará por meio de uma **interface web**, desenvol
 
 ```
 
-### 2.7 Recursos do Produto
+##  Funcionalidades do Sistema (Requisitos Funcionais)
 
-Listar funcionalidades (requisitos funcionais):
-- Descrição geral das funcionalidades
-- Prioridade, estabilidade, esforço, risco
-- Questões de usabilidade
+O sistema será estruturado para garantir a organização eficiente dos dados microbiológicos, permitindo um fluxo de trabalho claro para os usuários. Abaixo, estão os requisitos funcionais organizados por módulos, com descrição, prioridade e análise de estabilidade, benefício, esforço e risco.
+
+---
+
+### 1. Módulo de Cadastro de Amostras
+
+**Descrição:** Permite o registro e a organização das amostras microbiológicas, incluindo isolados individuais e consórcios microbianos.
+
+**Funcionalidades:**
+- Cadastro de novas amostras (nome, origem, características básicas, meio de cultivo) – **Alta prioridade**
+- Edição e atualização de informações de amostras existentes – **Alta prioridade**
+- Associação de amostras a ensaios laboratoriais e análises genômicas – **Média prioridade**
+- Importação de dados via planilhas CSV ou APIs externas – **Média prioridade**
+
+**Atributos:**
+- **Estabilidade:** Alta (dados estruturados e imutáveis na maioria dos casos)
+- **Benefício:** Essencial para a organização dos dados
+- **Esforço:** Médio (interface intuitiva, estrutura de banco de dados bem definida)
+- **Risco:** Baixo (implementação padrão para cadastro)
+
+---
+
+### 2. Módulo de Testes e Ensaios
+
+**Descrição:** Permite a inserção, atualização e consulta de resultados laboratoriais obtidos a partir das amostras microbiológicas.
+
+**Funcionalidades:**
+- Registro de resultados funcionais, morfológicos e bioquímicos – **Alta prioridade**
+- Associação dos resultados a amostras específicas – **Alta prioridade**
+- Validação e revisão de testes laboratoriais – **Média prioridade**
+- Histórico de alterações nos dados dos ensaios – **Média prioridade**
+- Exportação de dados para análise estatística – **Baixa prioridade**
+
+**Atributos:**
+- **Estabilidade:** Média (dados podem ser alterados com novas análises)
+- **Benefício:** Fundamental para rastrear e interpretar características microbiológicas
+- **Esforço:** Alto (integração com diversas categorias de testes)
+- **Risco:** Médio (garantir consistência e validação dos dados inseridos)
+
+---
+
+### 3. Módulo de Análise Genômica
+
+**Descrição:** Organiza informações de sequenciamento genético e dados de bioinformática para cada amostra ou consórcio microbiano.
+
+**Funcionalidades:**
+- Armazenamento de metadados de sequenciamento (método, plataforma usada, referência) – **Alta prioridade**
+- Associação de sequências genéticas a amostras e testes laboratoriais – **Alta prioridade**
+
+
+**Atributos:**
+- **Estabilidade:** Média (dados podem ser corrigidos e refinados)
+- **Benefício:** Crucial para pesquisas avançadas e comparações entre amostras
+- **Esforço:** Médio (demanda integração com formatos de dados científicos específicos)
+- **Risco:** Alto (complexidade na padronização e compatibilidade com ferramentas externas)
+
+---
+
+### 4. Módulo de Relatórios
+
+**Descrição:** Gera relatórios personalizáveis com base nos dados microbiológicos registrados no sistema.
+
+**Funcionalidades:**
+- Geração de relatórios por filtros específicos (por espécie, origem, resultado de teste) – **Alta prioridade**
+- Integração com ferramentas Excel e Google Sheets e exportação de relatórios em CSV e JSON – **Alta prioridade**
+- Compartilhamento de relatórios entre usuários do sistema – **Baixa prioridade**
+
+**Atributos:**
+- **Estabilidade:** Alta (dados são extraídos diretamente do banco de dados)
+- **Benefício:** Facilita a documentação e compartilhamento de dados
+- **Esforço:** Médio (ferramentas de geração de relatórios já são bem estabelecidas)
+- **Risco:** Baixo (desde que os filtros e formatos de exportação sejam bem definidos)
+
+---
+
+### 5. Controle de Usuários
+
+**Descrição:** Permite o gerenciamento de usuários, autenticação e rastreamento de alterações feitas no sistema.
+
+**Funcionalidades:**
+- Cadastro de usuários com diferentes níveis de permissão (administrador, pesquisador, visitante) – **Alta prioridade**
+- Autenticação segura com login e senha – **Alta prioridade**
+- Registro de logs de alterações feitas pelos usuários – **Alta prioridade**
+- Recuperação de senha e gerenciamento de credenciais – **Média prioridade**
+- Controle de sessões ativas e tempo limite de inatividade – **Baixa prioridade**
+
+**Atributos:**
+- **Estabilidade:** Alta (sistema de autenticação bem projetado evita problemas futuros)
+- **Benefício:** Garante segurança e controle sobre os dados armazenados
+- **Esforço:** Médio (integração com protocolos de segurança pode ser trabalhosa)
+- **Risco:** Médio (necessário garantir proteção contra acessos indevidos)
+
+---
+
+### 6. Banco de Dados
+
+**Descrição:** Responsável pelo armazenamento estruturado e normalizado dos dados do sistema.
+
+**Funcionalidades:**
+- Armazenamento relacional estruturado para garantir integridade dos dados – **Alta prioridade**
+- Relacionamento entre amostras, ensaios e sequências genômicas – **Alta prioridade**
+- Otimização de consultas para desempenho eficiente – **Alta prioridade**
+- Backups periódicos e políticas de recuperação de dados – **Média prioridade**
+
+**Atributos:**
+- **Estabilidade:** Alta (estrutura relacional bem projetada evita falhas e redundância)
+- **Benefício:** Base fundamental para todas as funcionalidades do sistema
+- **Esforço:** Alto (normalização adequada e otimização exigem planejamento cuidadoso)
+- **Risco:** Médio (evitar problemas de escalabilidade e segurança)
+
+---
+
+Este conjunto de requisitos funcionais garante que o sistema atenda às necessidades dos usuários, fornecendo uma plataforma **robusta**, **segura** e **eficiente** para o gerenciamento de dados microbiológicos.
+
 
 ### 2.8 Outros Requisitos do Sistema
 
-Listar requisitos não funcionais:
-- Padrões aplicáveis
-- Hardware/plataforma
-- Desempenho
-- Tolerância a erros
-- Usabilidade
-- Documentação
-- Restrições externas
+Esta seção contempla os **requisitos não funcionais** que devem ser considerados para garantir a confiabilidade, escalabilidade e usabilidade do sistema ao longo do tempo. Tais requisitos são fundamentais para assegurar que a solução possa ser adotada de forma eficiente no ambiente de pesquisa e mantida de maneira sustentável.
+
+---
+
+####  Padrões Aplicáveis
+
+- O sistema deve seguir boas práticas de desenvolvimento web e banco de dados (ex: RESTful APIs, MVC, normalização);
+- Utilização de convenções de nomenclatura claras e padronizadas para tabelas, campos e variáveis;
+- Adoção de padrões abertos para exportação de dados: CSV, JSON e SQL;
+
+
+---
+
+####  Hardware / Plataforma
+
+- O sistema será hospedado em **servidores da instituição de ensino** (ou ambiente em nuvem, se necessário);
+- A aplicação será acessada via **navegador web**;
+- O servidor deve possuir requisitos mínimos para rodar aplicações Python (Flask ou Django) com PostgreSQL/MySQL, além de armazenamento adequado para os dados experimentais e seus backups.
+
+---
+
+####  Desempenho
+
+- O sistema deverá ser capaz de realizar **consultas em menos de 2 segundos**, mesmo com o crescimento do volume de dados;
+- Deve suportar **múltiplos acessos simultâneos** sem degradação perceptível no tempo de resposta;
+- Estrutura de banco deve ser otimizada com **índices**, **relacionamentos eficientes** e **consultas bem estruturadas**.
+
+---
+
+####  Tolerância a Erros
+
+- O sistema deve possuir **tratamento de exceções** para erros de entrada de dados, falhas de conexão e operações inválidas;
+- Feedbacks claros devem ser fornecidos ao usuário quando um erro ocorrer (ex: mensagens de validação);
+- Deve existir política de **backup automático** e rotina de recuperação de dados para prevenir perdas.
+
+---
+
+####  Usabilidade
+
+- Interface acessível e responsiva, com menus e campos organizados de forma intuitiva;
+- Os campos devem conter instruções ou placeholders para facilitar o preenchimento;
+- A navegação deve ser fluida e com número reduzido de cliques para ações frequentes.
+
+---
+
+####  Documentação
+
+- O sistema deve possuir documentação técnica sobre:
+  - Instalação e configuração
+  - Estrutura do banco de dados (modelo ER, tabelas, relacionamentos)
+  - Guia de uso da interface
+- Além disso, deverá conter instruções claras para manutenção e extensão futura por outros estudantes ou técnicos da instituição.
+
+---
+
+####  Restrições Externas
+
+- A implantação depende da disponibilidade de infraestrutura de TI da faculdade (acesso a servidor, rede, permissões);
+- A entrada de dados depende da continuidade dos experimentos e do comprometimento dos usuários em manter o sistema atualizado;
+
+---
+
+Esses requisitos não funcionais são essenciais para garantir que o sistema não apenas atenda às necessidades imediatas do laboratório, mas também seja sustentável, seguro e utilizável ao longo do tempo por diferentes gerações de pesquisadores.
 
 ### 2.9 Cronograma do Projeto
 
