@@ -1,0 +1,4 @@
+id,nome,senha
+
+id -> nome,senha
+nome -> senha

@@ -1,0 +1,4 @@
+[id,usuario_id,info_deposito,bioinformatica_id,bancada,nome,meio_cultura,temperatura,origem,cond_oxigenacao
+
+[id -> usuario_id,info_deposito,bioinformatica_id,bancada,nome,meio_cultura,temperatura,origem,cond_oxigenacao
+nome -> meio_cultura,origem,cond_oxigenacao
