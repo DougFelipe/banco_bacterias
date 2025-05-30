@@ -4426,11 +4426,11 @@
         <dia:point val="5.94557,33.7829"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="2.89202,33.7198;6.00869,34.8297"/>
+        <dia:rectangle val="2.89201,33.7198;6.00869,34.8297"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="5.94557,33.7829"/>
-        <dia:point val="2.95514,34.7666"/>
+        <dia:point val="2.95513,34.7666"/>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
@@ -4483,11 +4483,11 @@
         <dia:point val="3.54397,41.805"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="0.541147,36.5987;3.61219,41.8732"/>
+        <dia:rectangle val="0.541146,36.5987;3.61219,41.8732"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="3.54397,41.805"/>
-        <dia:point val="0.609362,36.6669"/>
+        <dia:point val="0.609361,36.6669"/>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
@@ -4576,7 +4576,7 @@
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="weak_key">
-        <dia:boolean val="false"/>
+        <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="derived">
         <dia:boolean val="false"/>
