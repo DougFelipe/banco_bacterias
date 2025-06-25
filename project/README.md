@@ -1,14 +1,6 @@
-# 🧬 API Executor SQL Multiplataforma - MySQL & PostgreSQL
+# 🧬 BacteriasDB - MySQL & PostgreSQL
 
-Uma poderosa API Express.js que executa consultas SQL contra bancos de dados **MySQL** e **PostgreSQL** dinamicamente, retornando resultados em formato JSON. Perfeita para análise de dados científicos, dashboards administrativos e validação rápida de dados em múltiplas plataformas de banco.
-
-## 🆕 Novidades da Versão 2.0
-
-- ✅ **Suporte Multiplataforma**: MySQL e PostgreSQL
-- ✅ **Troca Dinâmica**: Altere entre bancos via variável de ambiente
-- ✅ **Interface Atualizada**: Mostra informações do banco atual
-- ✅ **Comentários em Português**: Código totalmente documentado
-- ✅ **Arquitetura Modular**: Conexões organizadas e reutilizáveis
+API Express.js que executa consultas SQL em bancos de dados **MySQL** e **PostgreSQL** dinamicamente.
 
 ## 📁 Estrutura do Projeto
 
@@ -193,7 +185,6 @@ Acesse `http://localhost:3010` para usar a interface web que inclui:
 - ✅ **Informações do banco** (tipo, host, porta, etc.)
 - ✅ **Resultados formatados** em tabelas responsivas
 - ✅ **Indicador visual** do tipo de banco conectado
-- ✅ **Atalhos de teclado** (Ctrl+Enter para executar)
 
 ## 📥 Exemplos de Uso
 
@@ -260,64 +251,7 @@ npm install express mysql2 pg dotenv cors
 ### Configuração Atual (Desenvolvimento)
 - ✅ **Todas as operações SQL permitidas** (SELECT, INSERT, UPDATE, DELETE, etc.)
 - ✅ **Limitação de resultados** (máximo 1000 linhas por consulta)
-- ✅ **Pool de conexões** para melhor performance
 - ✅ **Validação básica** de entrada
-
-### Recomendações para Produção
-
-#### 1. Restringir Tipos de Consulta
-Descomente no arquivo `routes/query.js`:
-```javascript
-const operacoesPerigrosas = ['DROP', 'DELETE', 'UPDATE', 'INSERT', 'ALTER', 'CREATE', 'TRUNCATE'];
-```
-
-#### 2. Adicionar Autenticação
-```javascript
-const jwt = require('jsonwebtoken');
-app.use('/query', authenticateToken);
-```
-
-#### 3. Rate Limiting
-```javascript
-const rateLimit = require('express-rate-limit');
-app.use('/query', rateLimit({ 
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100 // máximo 100 requisições por IP
-}));
-```
-
-#### 4. Sanitização de Entrada
-- Validar padrões de consulta
-- Escapar caracteres especiais
-- Usar consultas parametrizadas quando possível
-
-#### 5. Logs de Auditoria
-```javascript
-// Registrar todas as consultas executadas
-console.log(`[${new Date().toISOString()}] ${req.ip}: ${query}`);
-```
-
-## 🚀 Casos de Uso
-
-### Pesquisa Científica
-- Análise de dados bacteriológicos
-- Consultas complexas em datasets grandes
-- Comparação entre diferentes SGBDs
-
-### Dashboards Administrativos
-- Visualização de dados em tempo real
-- Relatórios personalizados
-- Monitoramento de sistemas
-
-### Validação de Dados
-- Verificação rápida de conteúdo
-- Testes de integridade
-- Migração entre bancos
-
-### Integração de APIs
-- Backend para aplicações web
-- Microserviços de dados
-- ETL (Extract, Transform, Load)
 
 ## 🛠️ Solução de Problemas
 
@@ -365,75 +299,3 @@ Ative logs detalhados:
 NODE_ENV=development
 DEBUG=true
 ```
-
-## 📊 Dicas de Performance
-
-### 1. Otimização de Consultas
-```sql
--- Use LIMIT para restringir resultados
-SELECT * FROM tabela_grande LIMIT 100;
-
--- Adicione índices para colunas frequentemente consultadas
-CREATE INDEX idx_usuario_email ON usuario(email);
-```
-
-### 2. Pool de Conexões
-O sistema já usa pools otimizados:
-- **MySQL**: 10 conexões simultâneas
-- **PostgreSQL**: 10 conexões simultâneas
-
-### 3. Cache de Consultas
-Implemente cache na camada da aplicação:
-```javascript
-const NodeCache = require('node-cache');
-const cache = new NodeCache({ stdTTL: 600 }); // 10 minutos
-```
-
-### 4. Monitoramento
-```javascript
-// Tempo de execução de consultas
-const startTime = Date.now();
-const result = await executeQuery(query);
-const executionTime = Date.now() - startTime;
-console.log(`Consulta executada em ${executionTime}ms`);
-```
-
-## 🔄 Migração Entre Bancos
-
-### MySQL para PostgreSQL
-```javascript
-// Diferenças principais:
-// MySQL: LIMIT 10
-// PostgreSQL: LIMIT 10
-
-// MySQL: AUTO_INCREMENT
-// PostgreSQL: SERIAL ou GENERATED ALWAYS AS IDENTITY
-
-// MySQL: TINYINT(1)
-// PostgreSQL: BOOLEAN
-```
-
-### Consultas Compatíveis
-```sql
--- Funciona em ambos
-SELECT * FROM usuarios WHERE ativo = true;
-SELECT COUNT(*) FROM pedidos;
-SELECT DISTINCT categoria FROM produtos;
-```
-
----
-
-## 📞 Suporte
-
-Para dúvidas ou problemas:
-
-1. **Verifique os logs** do servidor
-2. **Teste a conexão** via `/query/test`
-3. **Consulte a documentação** do seu SGBD
-4. **Valide as consultas** em cliente SQL antes de usar a API
-
----
-
-**⚠️ Importante**: Esta API fornece acesso direto ao banco de dados. Use medidas de segurança apropriadas em ambientes de produção, incluindo autenticação, autorização e restrições de consulta.
-
-**🎯 Objetivo**: Facilitar a execução de consultas SQL dinâmicas em múltiplas plataformas de banco, útil para cientistas, desenvolvedores e administradores de dados que precisam de flexibilidade e portabilidade.
