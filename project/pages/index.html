@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>🧬 Executor SQL Multiplataforma - BacteriaDB</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🧬 Executor SQL Multiplataforma</h1>
+        <p>Execute consultas SQL em bancos MySQL e PostgreSQL</p>
+        <div id="dbInfo" class="db-info">Carregando informações do banco...</div>
+      </header>
+
+      <div class="query-section">
+        <div class="input-group">
+          <label for="sqlQuery">Consulta SQL:</label>
+          <textarea 
+            id="sqlQuery" 
+            placeholder="SELECT * FROM usuario LIMIT 5;"
+            rows="4"
+          ></textarea>
+        </div>
+        
+        <div class="button-group">
+          <button id="executeBtn" class="btn-primary">Executar Consulta</button>
+          <button id="testBtn" class="btn-secondary">Testar Conexão</button>
+          <button id="infoBtn" class="btn-info">Info do Banco</button>
+          <button id="clearBtn" class="btn-clear">Limpar</button>
+        </div>
+      </div>
+
+      <div class="results-section">
+        <div class="results-header">
+          <h3>Resultados</h3>
+          <span id="resultCount" class="result-count"></span>
+        </div>
+        <div id="results" class="results-container">
+          <p class="placeholder">Digite uma consulta SQL e clique em "Executar Consulta" para ver os resultados</p>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>Endpoints da API</h3>
+        <div class="endpoint">
+          <code>POST /query</code>
+          <p>Executar consulta SQL. Envie JSON: <code>{"query": "SELECT * FROM tabela;"}</code></p>
+        </div>
+        <div class="endpoint">
+          <code>GET /query/test</code>
+          <p>Testar conexão com banco de dados</p>
+        </div>
+        <div class="endpoint">
+          <code>GET /query/info</code>
+          <p>Obter informações sobre o banco configurado</p>
+        </div>
+        <div class="endpoint">
+          <code>GET /health</code>
+          <p>Verificação de saúde da API</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Elementos da interface
+      const sqlQuery = document.getElementById('sqlQuery');
+      const executeBtn = document.getElementById('executeBtn');
+      const testBtn = document.getElementById('testBtn');
+      const infoBtn = document.getElementById('infoBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const results = document.getElementById('results');
+      const resultCount = document.getElementById('resultCount');
+      const dbInfo = document.getElementById('dbInfo');
+
+      // Carregar informações do banco ao inicializar
+      loadDatabaseInfo();
+
+      // Executar consulta SQL
+      executeBtn.addEventListener('click', async () => {
+        const query = sqlQuery.value.trim();
+        if (!query) {
+          showError('Por favor, digite uma consulta SQL');
+          return;
+        }
+
+        executeBtn.disabled = true;
+        executeBtn.textContent = 'Executando...';
+        
+        try {
+          const response = await fetch('/query', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ query })
+          });
+
+          const data = await response.json();
+          
+          if (data.success) {
+            showResults(data);
+          } else {
+            showError(data.error || 'Falha na execução da consulta');
+          }
+        } catch (error) {
+          showError('Erro de rede: ' + error.message);
+        } finally {
+          executeBtn.disabled = false;
+          executeBtn.textContent = 'Executar Consulta';
+        }
+      });
+
+      // Testar conexão com banco
+      testBtn.addEventListener('click', async () => {
+        testBtn.disabled = true;
+        testBtn.textContent = 'Testando...';
+        
+        try {
+          const response = await fetch('/query/test');
+          const data = await response.json();
+          
+          if (data.success) {
+            showSuccess(data.message);
+            updateDatabaseInfo(data.database);
+          } else {
+            showError('Falha na conexão: ' + data.error);
+          }
+        } catch (error) {
+          showError('Teste de conexão falhou: ' + error.message);
+        } finally {
+          testBtn.disabled = false;
+          testBtn.textContent = 'Testar Conexão';
+        }
+      });
+
+      // Obter informações do banco
+      infoBtn.addEventListener('click', async () => {
+        infoBtn.disabled = true;
+        infoBtn.textContent = 'Carregando...';
+        
+        try {
+          const response = await fetch('/query/info');
+          const data = await response.json();
+          
+          if (data.success) {
+            showDatabaseDetails(data.database);
+            updateDatabaseInfo(data.database);
+          } else {
+            showError('Falha ao obter informações: ' + data.error);
+          }
+        } catch (error) {
+          showError('Erro ao carregar informações: ' + error.message);
+        } finally {
+          infoBtn.disabled = false;
+          infoBtn.textContent = 'Info do Banco';
+        }
+      });
+
+      // Limpar resultados
+      clearBtn.addEventListener('click', () => {
+        sqlQuery.value = '';
+        results.innerHTML = '<p class="placeholder">Digite uma consulta SQL e clique em "Executar Consulta" para ver os resultados</p>';
+        resultCount.textContent = '';
+      });
+
+      // Carregar informações do banco
+      async function loadDatabaseInfo() {
+        try {
+          const response = await fetch('/query/info');
+          const data = await response.json();
+          if (data.success) {
+            updateDatabaseInfo(data.database);
+          }
+        } catch (error) {
+          dbInfo.textContent = 'Erro ao carregar informações do banco';
+          dbInfo.className = 'db-info error';
+        }
+      }
+
+      // Atualizar informações do banco no header
+      function updateDatabaseInfo(database) {
+        const dbType = database.type.toUpperCase();
+        dbInfo.innerHTML = `
+          <strong>${dbType}</strong> - ${database.host}:${database.port}/${database.database}
+        `;
+        dbInfo.className = `db-info ${database.type}`;
+      }
+
+      // Mostrar resultados da consulta
+      function showResults(data) {
+        const dbType = data.database.type.toUpperCase();
+        resultCount.innerHTML = `
+          ${data.rowCount} linhas retornadas do <strong>${dbType}</strong>
+        `;
+        
+        if (!data.data || data.data.length === 0) {
+          results.innerHTML = '<p class="no-results">Nenhum resultado encontrado</p>';
+          return;
+        }
+
+        // Criar tabela
+        let html = '<div class="table-container"><table class="results-table">';
+        
+        // Cabeçalho da tabela
+        if (data.fields && data.fields.length > 0) {
+          html += '<thead><tr>';
+          data.fields.forEach(field => {
+            html += `<th>${field.name}</th>`;
+          });
+          html += '</tr></thead>';
+        } else if (data.data.length > 0) {
+          // Fallback: usar chaves do objeto como cabeçalhos
+          html += '<thead><tr>';
+          Object.keys(data.data[0]).forEach(key => {
+            html += `<th>${key}</th>`;
+          });
+          html += '</tr></thead>';
+        }
+
+        // Corpo da tabela
+        html += '<tbody>';
+        data.data.forEach(row => {
+          html += '<tr>';
+          Object.values(row).forEach(value => {
+            html += `<td>${value !== null ? value : '<span class="null">NULL</span>'}</td>`;
+          });
+          html += '</tr>';
+        });
+        html += '</tbody></table></div>';
+
+        if (data.limited) {
+          html += '<p class="warning">⚠️ Resultados limitados a 1000 linhas</p>';
+        }
+
+        results.innerHTML = html;
+      }
+
+      // Mostrar detalhes do banco
+      function showDatabaseDetails(database) {
+        const dbType = database.type.toUpperCase();
+        results.innerHTML = `
+          <div class="database-details">
+            <h4>📊 Informações do Banco de Dados</h4>
+            <div class="detail-grid">
+              <div class="detail-item">
+                <strong>Tipo:</strong> ${dbType}
+              </div>
+              <div class="detail-item">
+                <strong>Host:</strong> ${database.host}
+              </div>
+              <div class="detail-item">
+                <strong>Porta:</strong> ${database.port}
+              </div>
+              <div class="detail-item">
+                <strong>Banco:</strong> ${database.database}
+              </div>
+              <div class="detail-item">
+                <strong>Usuário:</strong> ${database.user}
+              </div>
+            </div>
+          </div>
+        `;
+        resultCount.textContent = '';
+      }
+
+      // Mostrar mensagem de erro
+      function showError(message) {
+        results.innerHTML = `<div class="error">❌ Erro: ${message}</div>`;
+        resultCount.textContent = '';
+      }
+
+      // Mostrar mensagem de sucesso
+      function showSuccess(message) {
+        results.innerHTML = `<div class="success">✅ ${message}</div>`;
+        resultCount.textContent = '';
+      }
+
+      // Permitir Ctrl+Enter para executar consulta
+      sqlQuery.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'Enter') {
+          executeBtn.click();
+        }
+      });
+    </script>
+  </body>
+</html>
