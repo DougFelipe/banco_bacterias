@@ -1,5 +1,4 @@
 // Servidor principal - API Executor de SQL Multiplataforma
-// Suporte para MySQL e PostgreSQL
 const express = require('express');
 const cors = require('cors');
 const { resolve } = require('path');
@@ -11,14 +10,16 @@ const app = express();
 const port = process.env.PORT || 3010;
 
 // Middleware de configuração
-app.use(cors()); // Permitir requisições cross-origin
-app.use(express.json({ limit: '10mb' })); // Parser JSON com limite de 10MB
-app.use(express.static('static')); // Servir arquivos estáticos
+app.use(cors());
+app.use(express.json({ limit: '10mb' }));
+
+// Serve arquivos estáticos em /static (correto para front-end moderno!)
+app.use('/static', express.static(resolve(__dirname, 'static')));
 
 // Rotas da aplicação
-app.use('/query', queryRoutes); // Rotas para execução de consultas SQL
+app.use('/query', queryRoutes);
 
-// Servir página principal
+// Servir página principal (interface web)
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));
 });
@@ -68,7 +69,6 @@ async function startServer() {
     
     // Testar conexão com banco antes de iniciar servidor
     const dbConnected = await testConnection();
-    
     if (!dbConnected) {
       console.warn('⚠️  Servidor iniciando sem conexão com banco. Verifique suas configurações no .env');
     }
