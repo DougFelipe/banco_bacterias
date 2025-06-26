@@ -10,6 +10,8 @@
     <script type="module" src="/static/app.js"></script>
     <!-- Script para formulário dinâmico de INSERT -->
     <script type="module" src="/static/insert-form.js"></script>
+    <!-- Script para formulário dinâmico de SELECT -->
+    <script type="module" src="/static/select-form.js"></script>
   </head>
   <body>
     <div class="container">
@@ -19,10 +21,16 @@
         <div id="dbInfo" class="db-info">Carregando informações do banco...</div>
       </header>
 
-      <!-- Formulário dinâmico de INSERT ocupa mesma largura do editor SQL -->
+      <!-- Formulário dinâmico de INSERT -->
       <section class="query-section">
         <h2 style="margin-top:0">Inserir Dados</h2>
         <div id="crud-root"></div>
+      </section>
+
+      <!-- Formulário dinâmico de SELECT -->
+      <section class="query-section">
+        <h2>Consultar Dados</h2>
+        <div id="crud-select-root"></div>
       </section>
 
       <!-- Editor manual e resultados -->
