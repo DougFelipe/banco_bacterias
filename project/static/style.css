@@ -380,9 +380,10 @@ header p {
   }
 }
 
-/* Áreas de formulários dinâmicos CRUD (Insert, Select, etc) */
+/* Áreas de formulários dinâmicos CRUD (Insert, Select, Update) */
 #crud-root,
-#crud-select-root {
+#crud-select-root,
+#crud-update-root {
   margin: 2rem 0;
   padding: 0;            /* padding só dentro de .query-section */
   background: none;      /* deixa só .query-section cuidar disso */
@@ -391,7 +392,8 @@ header p {
 }
 
 #crud-root label,
-#crud-select-root label {
+#crud-select-root label,
+#crud-update-root label {
   font-weight: bold;
   display: block;
   margin-bottom: .2rem;
@@ -400,7 +402,9 @@ header p {
 #crud-root input,
 #crud-root select,
 #crud-select-root input,
-#crud-select-root select {
+#crud-select-root select,
+#crud-update-root input,
+#crud-update-root select {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -409,7 +413,8 @@ header p {
 }
 
 #crud-root button[type="submit"],
-#crud-select-root button[type="submit"] {
+#crud-select-root button[type="submit"],
+#crud-update-root button[type="submit"] {
   background: #1976d2;
   color: #fff;
   border: none;
@@ -420,10 +425,14 @@ header p {
   transition: background 0.2s;
 }
 #crud-select-root button[type="submit"] {
-  background: #388e3c; /* opcional: verde para Select, para diferenciar do Insert */
+  background: #388e3c; /* verde para Select */
+}
+#crud-update-root button[type="submit"] {
+  background: #e6981a; /* laranja para Update */
 }
 #crud-root button[type="submit"]:hover,
-#crud-select-root button[type="submit"]:hover {
+#crud-select-root button[type="submit"]:hover,
+#crud-update-root button[type="submit"]:hover {
   background: #145a9e;
 }
 
@@ -448,4 +457,19 @@ header p {
 .error {
   color: #d32f2f;
   font-weight: bold;
+}
+
+/* Extra: campos agrupados em UPDATE (opcional, pode ajustar) */
+#crud-update-root .form-subgroup {
+  margin-bottom: 2rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 1rem 1rem 0.2rem 1rem;
+  background: #faf8f2;
+}
+#crud-update-root legend {
+  font-size: 1em;
+  font-weight: bold;
+  color: #b37610;
+  margin-bottom: .5em;
 }

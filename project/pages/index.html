@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <title>🧬 Executor SQL Multiplataforma - BacteriaDB</title>
+    <title>🧬 BacteriaDB</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Estilos gerais -->
     <link rel="stylesheet" href="/static/style.css" />
-    <!-- Script do app principal -->
+    <!-- Scripts dos apps -->
     <script type="module" src="/static/app.js"></script>
-    <!-- Script para formulário dinâmico de INSERT -->
     <script type="module" src="/static/insert-form.js"></script>
-    <!-- Script para formulário dinâmico de SELECT -->
     <script type="module" src="/static/select-form.js"></script>
+    <script type="module" src="/static/update-form.js"></script>
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>🧬 Executor SQL Multiplataforma</h1>
+        <h1>🧬 BacteriaDB</h1>
         <p>Execute consultas SQL em bancos MySQL e PostgreSQL</p>
         <div id="dbInfo" class="db-info">Carregando informações do banco...</div>
       </header>
@@ -33,6 +32,12 @@
         <div id="crud-select-root"></div>
       </section>
 
+      <!-- Formulário dinâmico de UPDATE -->
+      <section class="query-section">
+        <h2>Atualizar Dados</h2>
+        <div id="crud-update-root"></div>
+      </section>
+
       <!-- Editor manual e resultados -->
       <section class="query-section">
         <div class="input-group">
@@ -43,7 +48,6 @@
             rows="4"
           ></textarea>
         </div>
-        
         <div class="button-group">
           <button id="executeBtn" class="btn-primary">Executar Consulta</button>
           <button id="testBtn" class="btn-secondary">Testar Conexão</button>
