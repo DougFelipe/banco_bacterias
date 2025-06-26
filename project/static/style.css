@@ -380,10 +380,11 @@ header p {
   }
 }
 
-/* Áreas de formulários dinâmicos CRUD (Insert, Select, Update) */
+/* Áreas de formulários dinâmicos CRUD (Insert, Select, Update, Delete) */
 #crud-root,
 #crud-select-root,
-#crud-update-root {
+#crud-update-root,
+#crud-delete-root {
   margin: 2rem 0;
   padding: 0;            /* padding só dentro de .query-section */
   background: none;      /* deixa só .query-section cuidar disso */
@@ -391,20 +392,25 @@ header p {
   box-shadow: none;
 }
 
+/* Labels dos formulários */
 #crud-root label,
 #crud-select-root label,
-#crud-update-root label {
+#crud-update-root label,
+#crud-delete-root label {
   font-weight: bold;
   display: block;
   margin-bottom: .2rem;
 }
 
+/* Inputs e selects */
 #crud-root input,
 #crud-root select,
 #crud-select-root input,
 #crud-select-root select,
 #crud-update-root input,
-#crud-update-root select {
+#crud-update-root select,
+#crud-delete-root input,
+#crud-delete-root select {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -412,10 +418,23 @@ header p {
   border: 1px solid #aaa;
 }
 
+/* Botão submit de cada operação com cor própria */
+#crud-root button[type="submit"] {
+  background: #1976d2; /* azul para INSERT */
+}
+#crud-select-root button[type="submit"] {
+  background: #388e3c; /* verde para SELECT */
+}
+#crud-update-root button[type="submit"] {
+  background: #e6981a; /* laranja para UPDATE */
+}
+#crud-delete-root button[type="submit"] {
+  background: #d32f2f; /* vermelho para DELETE */
+}
 #crud-root button[type="submit"],
 #crud-select-root button[type="submit"],
-#crud-update-root button[type="submit"] {
-  background: #1976d2;
+#crud-update-root button[type="submit"],
+#crud-delete-root button[type="submit"] {
   color: #fff;
   border: none;
   padding: 0.7rem 1.6rem;
@@ -424,22 +443,19 @@ header p {
   font-weight: bold;
   transition: background 0.2s;
 }
-#crud-select-root button[type="submit"] {
-  background: #388e3c; /* verde para Select */
-}
-#crud-update-root button[type="submit"] {
-  background: #e6981a; /* laranja para Update */
-}
 #crud-root button[type="submit"]:hover,
 #crud-select-root button[type="submit"]:hover,
-#crud-update-root button[type="submit"]:hover {
+#crud-update-root button[type="submit"]:hover,
+#crud-delete-root button[type="submit"]:hover {
   background: #145a9e;
 }
 
+/* Grupo de campos do formulário */
 .form-group {
   margin-bottom: 1rem;
 }
 
+/* Preview do SQL */
 .sql-preview {
   background: #272822;
   color: #f8f8f2;
@@ -450,6 +466,7 @@ header p {
   overflow-x: auto;
 }
 
+/* Mensagens de sucesso e erro */
 .success {
   color: #388e3c;
   font-weight: bold;
@@ -459,7 +476,7 @@ header p {
   font-weight: bold;
 }
 
-/* Extra: campos agrupados em UPDATE (opcional, pode ajustar) */
+/* Campos agrupados (opcional para UPDATE, mas já pronto) */
 #crud-update-root .form-subgroup {
   margin-bottom: 2rem;
   border: 1px solid #eee;
