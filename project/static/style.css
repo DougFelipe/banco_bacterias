@@ -379,3 +379,73 @@ header p {
     grid-template-columns: 1fr;
   }
 }
+
+/* Áreas de formulários dinâmicos CRUD (Insert, Select, etc) */
+#crud-root,
+#crud-select-root {
+  margin: 2rem 0;
+  padding: 0;            /* padding só dentro de .query-section */
+  background: none;      /* deixa só .query-section cuidar disso */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#crud-root label,
+#crud-select-root label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: .2rem;
+}
+
+#crud-root input,
+#crud-root select,
+#crud-select-root input,
+#crud-select-root select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+#crud-root button[type="submit"],
+#crud-select-root button[type="submit"] {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+#crud-select-root button[type="submit"] {
+  background: #388e3c; /* opcional: verde para Select, para diferenciar do Insert */
+}
+#crud-root button[type="submit"]:hover,
+#crud-select-root button[type="submit"]:hover {
+  background: #145a9e;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.sql-preview {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 0.7rem 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  font-size: 1em;
+  overflow-x: auto;
+}
+
+.success {
+  color: #388e3c;
+  font-weight: bold;
+}
+.error {
+  color: #d32f2f;
+  font-weight: bold;
+}

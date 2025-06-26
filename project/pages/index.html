@@ -4,8 +4,14 @@
     <title>🧬 Executor SQL Multiplataforma - BacteriaDB</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Estilos gerais -->
     <link rel="stylesheet" href="/static/style.css" />
+    <!-- Script do app principal -->
     <script type="module" src="/static/app.js"></script>
+    <!-- Script para formulário dinâmico de INSERT -->
+    <script type="module" src="/static/insert-form.js"></script>
+    <!-- Script para formulário dinâmico de SELECT -->
+    <script type="module" src="/static/select-form.js"></script>
   </head>
   <body>
     <div class="container">
@@ -15,9 +21,22 @@
         <div id="dbInfo" class="db-info">Carregando informações do banco...</div>
       </header>
 
-      <div class="query-section">
+      <!-- Formulário dinâmico de INSERT -->
+      <section class="query-section">
+        <h2 style="margin-top:0">Inserir Dados</h2>
+        <div id="crud-root"></div>
+      </section>
+
+      <!-- Formulário dinâmico de SELECT -->
+      <section class="query-section">
+        <h2>Consultar Dados</h2>
+        <div id="crud-select-root"></div>
+      </section>
+
+      <!-- Editor manual e resultados -->
+      <section class="query-section">
         <div class="input-group">
-          <label for="sqlQuery">Consulta SQL:</label>
+          <label for="sqlQuery">Consulta SQL Manual:</label>
           <textarea 
             id="sqlQuery" 
             placeholder="SELECT * FROM usuario LIMIT 5;"
@@ -31,9 +50,9 @@
           <button id="infoBtn" class="btn-info">Info do Banco</button>
           <button id="clearBtn" class="btn-clear">Limpar</button>
         </div>
-      </div>
+      </section>
 
-      <div class="results-section">
+      <section class="results-section">
         <div class="results-header">
           <h3>Resultados</h3>
           <span id="resultCount" class="result-count"></span>
@@ -41,9 +60,9 @@
         <div id="results" class="results-container">
           <p class="placeholder">Digite uma consulta SQL e clique em "Executar Consulta" para ver os resultados</p>
         </div>
-      </div>
+      </section>
 
-      <div class="info-section">
+      <section class="info-section">
         <h3>Endpoints da API</h3>
         <div class="endpoint">
           <code>POST /query</code>
@@ -61,7 +80,7 @@
           <code>GET /health</code>
           <p>Verificação de saúde da API</p>
         </div>
-      </div>
+      </section>
     </div>
   </body>
 </html>
