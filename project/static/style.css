@@ -381,15 +381,14 @@ header p {
 }
 
 
-/* static/insert-form.css */
 #crud-root {
   margin: 2rem 0;
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  box-shadow: 0 1px 8px #0001;
-  max-width: 520px;
+  padding: 0; /* deixa padding para dentro da query-section! */
+  background: none;   /* deixa só a query-section cuidar do visual externo */
+  border-radius: 0;   /* deixa só a query-section cuidar disso */
+  box-shadow: none;   /* deixa só a query-section cuidar disso */
 }
+
 
 #crud-root label {
   font-weight: bold;
